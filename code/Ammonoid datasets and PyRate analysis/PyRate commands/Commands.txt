@@ -1,0 +1,81 @@
+## Analyses performed on the Pliensbachian and Cretaceous datasets
+
+## Estimating origination and extinction dynamics with multiple PyRate models (BDMCMC: Silvestro et al. 2014 - Systematic Biology; BDCS: Silvestro et al. 2015 - New Phytologist, and RJ-MCMC: Silvestro et al. 2019 - Paleobiology)
+
+
+## All Pliensbachian species
+source(file="./PyRate-master/pyrate_utilities.r")
+extract.ages(file="./Datasets/eP_oc.txt")
+
+#Model selection of the best fit preservation rate (NHPP, HPP or TPP)
+python PyRate.py ./Datasets/eP_oc_PyRate.py -qShift  ./fixShift/eP_epochs_q.txt -PPmodeltest
+
+#RJ-MCMC
+python PyRate.py ./Datasets/eP_oc_PyRate.py -A 4 -qShift ./fixShift/eP_epochs_q.txt 
+python PyRate.py -mProb ./Datasets/pyrate_mcmc_logs/eP_oc_1rj_mcmc.log -b 200
+python PyRate.py -plotRJ ./Datasets/pyrate_mcmc_logs/ -b 200
+
+
+## Simple Pliensbachian species
+source(file="./PyRate-master/pyrate_utilities.r")
+extract.ages(file="./Datasets/eP_oc_s.txt")
+
+#Model selection of the best fit preservation rate (NHPP, HPP or TPP)
+python PyRate.py ./Datasets/eP_oc_s_PyRate.py -qShift  ./fixShift/eP_epochs_q.txt -PPmodeltest
+
+#RJ-MCMC
+python PyRate.py ./Datasets/eP_oc_s_PyRate.py -A 4 -qShift ./fixShift/eP_epochs_q.txt 
+python PyRate.py -mProb ./Datasets/pyrate_mcmc_logs/eP_oc_s_1rj_mcmc.log -b 200
+python PyRate.py -plotRJ ./Datasets/pyrate_mcmc_logs/ -b 200
+
+
+## Complex Pliensbachian species
+source(file="./PyRate-master/pyrate_utilities.r")
+extract.ages(file="./Datasets/eP_oc_c.txt")
+
+#Model selection of the best fit preservation rate (NHPP, HPP or TPP)
+python PyRate.py ./Datasets/eP_oc_c_PyRate.py -qShift  ./fixShift/eP_epochs_q.txt -PPmodeltest
+
+#RJ-MCMC
+python PyRate.py ./Datasets/eP_oc_c_PyRate.py -A 4 -qShift ./fixShift/eP_epochs_q.txt 
+python PyRate.py -mProb ./Datasets/pyrate_mcmc_logs/eP_oc_c_1rj_mcmc.log -b 200
+python PyRate.py -plotRJ ./Datasets/pyrate_mcmc_logs/ -b 200
+
+
+## All Cretaceous genera
+source(file="./PyRate-master/pyrate_utilities.r")
+extract.ages(file="./Datasets/Kt_oc.txt")
+
+#Model selection of the best fit preservation rate (NHPP, HPP or TPP)
+python PyRate.py ./Datasets/Kt_oc_PyRate.py -qShift  ./fixShift/Kt_epochs_q.txt -PPmodeltest
+
+#RJ-MCMC
+python PyRate.py ./Datasets/Kt_oc_PyRate.py -A 4 -qShift ./fixShift/Kt_epochs_q.txt 
+python PyRate.py -mProb ./Datasets/pyrate_mcmc_logs/Kt_oc_1rj_mcmc.log -b 200
+python PyRate.py -plotRJ ./Datasets/pyrate_mcmc_logs/ -b 200
+
+
+## Simple Cretaceous genera
+source(file="./PyRate-master/pyrate_utilities.r")
+extract.ages(file="./Datasets/Kt_oc_s.txt")
+
+#Model selection of the best fit preservation rate (NHPP, HPP or TPP)
+python PyRate.py ./Datasets/Kt_oc_s_PyRate.py -qShift  ./fixShift/Kt_epochs_q.txt -PPmodeltest
+
+#RJ-MCMC
+python PyRate.py ./Datasets/Kt_oc_s_PyRate.py -A 4 -qShift ./fixShift/Kt_epochs_q.txt 
+python PyRate.py -mProb ./Datasets/pyrate_mcmc_logs/Kt_oc_s_1rj_mcmc.log -b 200
+python PyRate.py -plotRJ ./Datasets/pyrate_mcmc_logs/ -b 200
+
+
+## Complex Cretaceous genera
+source(file="./PyRate-master/pyrate_utilities.r")
+extract.ages(file="./Datasets/Kt_oc_c.txt")
+
+#Model selection of the best fit preservation rate (NHPP, HPP or TPP)
+python PyRate.py ./Datasets/Kt_oc_c_PyRate.py -qShift  ./fixShift/Kt_epochs_q.txt -PPmodeltest
+
+#RJ-MCMC
+python PyRate.py ./Datasets/Kt_oc_c_PyRate.py -A 4 -qShift ./fixShift/Kt_epochs_q.txt 
+python PyRate.py -mProb ./Datasets/pyrate_mcmc_logs/Kt_oc_c_1rj_mcmc.log -b 200
+python PyRate.py -plotRJ ./Datasets/pyrate_mcmc_logs/ -b 200
